@@ -55,9 +55,8 @@ if __name__ == '__main__':
     if not check_for_files():
         download_one_grams()
     generator = process_one_grams(2006, 2006)
-    first_few = itertools.islice(generator, 2000)
 
-    k_1 = sum_letter_frequency_in_nth(first_few, 'k', 0)
-    k_3 = sum_letter_frequency_in_nth(first_few, 'k', 0)
+    k_1 = sum_letter_frequency_in_nth(generator, 'k', 0)
+    k_3 = sum_letter_frequency_in_nth(generator, 'k', 0)
     print('K at positon 1', k_1)
     print('K at positon 3', k_3)
