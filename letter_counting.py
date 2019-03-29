@@ -20,11 +20,13 @@ def sum_letter_frequency_in_nth(word_counts, letter, n):
     then multiplies that by the frequency of the letter in the corpus.
     """
     total = 0
-    for word in word_counts:
+    for word, count in word_counts:
         if n < len(word) and word[n] == letter:
-            total += word_counts[word]
-
+            total += count
     return total
+
+def is_letter_in_nth_position(word, letter, n):
+    return n < len(word) and word[n] == letter
 
 
 def create_letter_table(word_list, count_function, max_letter_position=MAX_LETTER_POSITION):

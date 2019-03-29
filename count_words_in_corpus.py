@@ -26,6 +26,7 @@ def create_word_count(corpus_path=DEFAULT_CORPUS_PATH):
     write_word_counts(word_counts)
 
 def write_word_counts(word_counts, word_count_filename=DEFAULT_WORD_COUNTS_OUTPUT):
+    """Write a word count table to a csv file"""
     with open(word_count_filename, 'w', newline='', encoding="utf-8") as csv_file:
         csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for word, count in word_counts.most_common():
@@ -35,9 +36,9 @@ def read_word_counts(word_count_filename=DEFAULT_WORD_COUNTS_OUTPUT):
     try:
         with open(word_count_filename, 'r',  encoding="utf-8") as csv_file:
             reader = csv.reader(csv_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-            result = {}
+            result = []
             for row in reader:
-                result[row[0]] = int(row[1])
+                result.append([row[0], int(row[1])])
             return result
     except:
         return None

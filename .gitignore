@@ -1,5 +1,6 @@
 dicts/
 corpus/
+ngram/*.gz
 
 __pycache__
 *.pyc
