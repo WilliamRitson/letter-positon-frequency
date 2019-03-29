@@ -1,5 +1,5 @@
 from letter_counting import ALPHABET, sum_letter_frequency_in_nth
-import urllib
+import urllib.request
 import gzip
 from collections import Counter
 import fnmatch
