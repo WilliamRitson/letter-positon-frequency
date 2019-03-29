@@ -1,2 +1,5 @@
 dicts/
 corpus/
+
+__pycache__
+*.pyc
