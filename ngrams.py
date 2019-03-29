@@ -15,7 +15,7 @@ NGRAM_DIR = 'ngram'
 def download_one_grams():
     for letter in ALPHABET:
         print('Download ngram for', letter)
-        urllib.urlretrieve(BASE_URL.format(letter),
+        urllib.request.urlretrieve(BASE_URL.format(letter),
                            'ngram/{}.gz'.format(letter))
 
 
