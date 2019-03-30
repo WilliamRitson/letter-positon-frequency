@@ -1,4 +1,4 @@
-from letter_counting import ALPHABET, sum_letter_frequency_in_nth
+from letter_counting import ALPHABET, create_letter_table, write_letter_table_as_csv
 import urllib.request
 import gzip
 from collections import Counter
@@ -46,17 +46,12 @@ def process_one_grams(min_year, max_year):
             if year >= min_year and year <= max_year:
                 yield word, count
 
-
-def is_letter_in_nth_position(word, letter, n):
-    return n < len(word) and word[n] == letter
-
-
 if __name__ == '__main__':
     if not check_for_files():
         download_one_grams()
+    
     generator = process_one_grams(2006, 2006)
+    output_filename = 'results/ngrams-analysis.csv'
+    table = create_letter_table(generator)
 
-    k_1 = sum_letter_frequency_in_nth(generator, 'k', 0)
-    k_3 = sum_letter_frequency_in_nth(generator, 'k', 0)
-    print('K at positon 1', k_1)
-    print('K at positon 3', k_3)
+    write_letter_table_as_csv(table, output_filename)

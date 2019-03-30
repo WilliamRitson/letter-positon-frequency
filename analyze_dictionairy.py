@@ -1,4 +1,4 @@
-from letter_counting import sum_letter_in_nth, create_letter_table, write_letter_table_as_csv
+from letter_counting import  create_letter_table, write_letter_table_as_csv
 import csv
 import os
 
@@ -10,6 +10,7 @@ for dictionary_path in dictonary_folder:
     output_filename = 'results/{}_results.csv'.format(dictionary_path)
 
     words = open(input_filename).read().split('\n')
-    table = create_letter_table(words, sum_letter_in_nth)
+    word_counts = [[word, 1] for word in words]
+    table = create_letter_table(word_counts)
 
-    write_letter_table_as_csv(output_filename, table)
+    write_letter_table_as_csv(table, output_filename)
