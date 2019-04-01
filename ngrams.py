@@ -50,8 +50,12 @@ if __name__ == '__main__':
     if not check_for_files():
         download_one_grams()
     
-    generator = process_one_grams(2006, 2006)
-    output_filename = 'results/ngrams-analysis.csv'
+    generator = process_one_grams(0, 1973)
+    output_filename = 'results/ngrams-analysis-0-1973.csv'
     table = create_letter_table(generator)
+    write_letter_table_as_csv(table, output_filename)
 
+    generator = process_one_grams(1974, 2019)
+    output_filename = 'results/ngrams-analysis-1974-2019.csv'
+    table = create_letter_table(generator)
     write_letter_table_as_csv(table, output_filename)
